@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="main.css">
+        <script defer src="filters.js"  ></script>
+        <title> Apna Engineering Wallah - Static Page</title>
+    </head>
+<body>
+
+<!-- Start here NavBar Structure (for each html implementation needs this and every pages will have their own header structure )  -->
+
+ <nav>
+          <h2> Apna Engineering Wallah </h2>
+       <a href="#"> Courses   </a>
+
+ </nav>
+
+<div class="container">
+          <h1>Explore Free Study Material</h1>
+           <p> Access curated materials including PYQs, notes, and more - just a few clicks away!
+      </p>
+  <!-- Stepper Component Section. Same approach will follow all implementations on project (reusability for scaling design is core idea always on react or static )-->
+<div class="stepper-wrapper  overflow-scroll ">
+
+   <div class="step is-done "> <div class="title"> University</div>
+     <div class="dot"> </div>
+    </div>
+      <div class="step"> <div class="title"> Branch</div>  <div class="dot"> </div></div>
+        <div class="step"> <div class="title"> Semester</div><div class="dot"> </div>  </div>
+          <div class="step"> <div class="title">Subject</div> <div class="dot"> </div> </div>
+            <div class="step">   <div class="title">Material Type</div> <div class="dot"> </div></div>
+            <div class="step">   <div class="title"> Category</div><div class="dot"> </div></div>
+</div>
+    <main  class="main-filters-section" >
+   <!-- Filter Component Sections using vanilla Js logic and no state based system from React and data logic is fully based on Vanilla Javascript. (very simple)  -->
+
+      <div class="select-input-wrapper">
+       <label>Select University </label>
+        <select id="university-select"> <option value="">Select University</option> <option value="uni_a">University A</option><option value="uni_b">University B</option></select>
+
+       </div>
+
+     <div class="select-input-wrapper">
+   <label > Select Branch</label>
+  <select  id="branch-select"   >  <option value="">Select Branch</option> </select>
+        </div>
+
+        <div class="select-input-wrapper">
+     <label> Choose Your Semester </label>
+      <select id="semester-select">   <option value=""> Choose Your Semester  </option>  </select>
+       </div>
+
+     <div class="select-input-wrapper">
+         <label>Choose Your Subject</label>
+        <select  id="subject-select">   <option value=""  >Choose Your Subject</option></select>
+
+        </div>
+             <div class="select-input-wrapper">
+            <label >Select Material Type</label>
+
+<select id="material-select"> <option value="">Select Material Type</option><option value="pyqs"> PYQs </option><option value="notes">Notes</option>  <option value="extra">Extra Material</option> </select>
+
+
+        </div>
+
+      <div  class="select-input-wrapper category-container" >
+            <label>Choose From available resources  </label>
+
+       <select  id="notes-category-select">  <option value="">  Select Material Categories </option> </select>
+
+
+      </div>
+
+
+        <div class="filters-buttons">  <button type='button' class='btn-reset'>Reset Filter</button>  </div>
+
+
+          </main>
+<div class='card-list-section'  id='card-list-render'>
+            <!-- This will have logic with card component for better architecture and implementation like all code  -->
+        </div>
+</div>
+</body>
+</html>
