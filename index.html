@@ -1,86 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="main.css">
-        <script defer src="filters.js"  ></script>
-        <title> Apna Engineering Wallah - Static Page</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffccdc, #f7b2dd, #ec94df);
+            text-align: center;
+            font-family: 'Tilt Warp', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensures full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /*  Keeps content within the viewport */
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            max-width: 80%; /* Limit the container width */
+            width: 600px; /* Or a fixed width if you prefer */
+            text-align: center; /* Ensure content is centered within the container */
+            box-sizing: border-box;  /* Include padding in the element's total width and height */
+
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        .teddy {
+            width: 200px;
+            animation: float 3s infinite alternate;
+            margin-bottom: 20px;
+            display: block; /* Add this line */
+            margin-left: auto;  /*And these 2 lines*/
+            margin-right: auto;
+            max-width: 100%; /* Make sure images don't overflow */
+            height: auto;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center; /*This and...*/
+            align-items: center; /*...this line horizontally centers buttons.*/
+            gap: 20px;  /* Spacing between buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap to the next line if necessary */
+        }
+
+        .btn {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        .yes {
+            background-color: #f06292;
+            color: white;
+            /* Add a gradient for more visual appeal */
+            background: linear-gradient(to right, #f06292, #e91e63);
+        }
+
+        .yes:hover {
+            background: linear-gradient(to left, #f06292, #e91e63);
+            transform: scale(1.1);
+        }
+
+       .no {
+            background-color: #e53935;
+            color: white;
+            transition: 0.3s;
+            position: static; /*  Important: Remove absolute positioning */
+        }
+
+        .no:hover {
+            background-color: #d32f2f;
+            transform: scale(1.1);
+        }
+
+
+        .flirt-message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #c2185b;
+            font-style: italic;
+            display: none;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            word-break: break-word; /* prevent long words or phrases from overflowing */
+        }
+
+
+        /* Styles for the Celebration screen */
+        .celebration-container {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .celebration-container h1 {
+            color: #e91e63;
+            font-size: 4em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+         .celebration-container h2 {
+            color: #e91e63;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style adjustments for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .teddy {
+                width: 150px;
+            }
+            .btn {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+            .buttons {
+               flex-direction: row; /* Stack buttons vertically on smaller screens */
+               justify-content: center;
+               align-items: center;       /* Center buttons horizontally */
+               flex-wrap: wrap;
+
+            }
+            .container {
+                max-width: 95%;  /* Allow container to take up more width on smaller screens */
+                padding: 20px;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+</head>
 <body>
-
-<!-- Start here NavBar Structure (for each html implementation needs this and every pages will have their own header structure )  -->
-
- <nav>
-          <h2> Apna Engineering Wallah </h2>
-       <a href="#"> Courses   </a>
-
- </nav>
-
-<div class="container">
-          <h1>Explore Free Study Material</h1>
-           <p> Access curated materials including PYQs, notes, and more - just a few clicks away!
-      </p>
-  <!-- Stepper Component Section. Same approach will follow all implementations on project (reusability for scaling design is core idea always on react or static )-->
-<div class="stepper-wrapper  overflow-scroll ">
-
-   <div class="step is-done "> <div class="title"> University</div>
-     <div class="dot"> </div>
+    <div class="container">
+        <h1>Will You Be My Valentine? 🥰</h1>
+        <img src="536366732teddy-bear-i-love-you-animated-gif-big.gif" class="teddy" alt="Cute Teddy">
+        <div class="buttons">
+            <button class="btn yes" onclick="celebrate()">Yes ❤️</button>
+            <button class="btn no" onmouseover="moveNo()">No 💔</button>
+        </div>
+        <p class="flirt-message" id="flirt"></p>
     </div>
-      <div class="step"> <div class="title"> Branch</div>  <div class="dot"> </div></div>
-        <div class="step"> <div class="title"> Semester</div><div class="dot"> </div>  </div>
-          <div class="step"> <div class="title">Subject</div> <div class="dot"> </div> </div>
-            <div class="step">   <div class="title">Material Type</div> <div class="dot"> </div></div>
-            <div class="step">   <div class="title"> Category</div><div class="dot"> </div></div>
-</div>
-    <main  class="main-filters-section" >
-   <!-- Filter Component Sections using vanilla Js logic and no state based system from React and data logic is fully based on Vanilla Javascript. (very simple)  -->
-
-      <div class="select-input-wrapper">
-       <label>Select University </label>
-        <select id="university-select"> <option value="">Select University</option> <option value="uni_a">University A</option><option value="uni_b">University B</option></select>
-
-       </div>
-
-     <div class="select-input-wrapper">
-   <label > Select Branch</label>
-  <select  id="branch-select"   >  <option value="">Select Branch</option> </select>
-        </div>
-
-        <div class="select-input-wrapper">
-     <label> Choose Your Semester </label>
-      <select id="semester-select">   <option value=""> Choose Your Semester  </option>  </select>
-       </div>
-
-     <div class="select-input-wrapper">
-         <label>Choose Your Subject</label>
-        <select  id="subject-select">   <option value=""  >Choose Your Subject</option></select>
-
-        </div>
-             <div class="select-input-wrapper">
-            <label >Select Material Type</label>
-
-<select id="material-select"> <option value="">Select Material Type</option><option value="pyqs"> PYQs </option><option value="notes">Notes</option>  <option value="extra">Extra Material</option> </select>
 
 
-        </div>
+    <script>
+        let noBtn = document.querySelector('.no');
+        let flirtMsg = document.getElementById('flirt');
+        let container = document.querySelector('.container');
+        let flirts = [
+            "Are you sure? 🥺",
+            "But we’d be so cute together! 😘",
+            "I promise unlimited chocolates 🍫",
+            "Think again, pretty please? 🥰",
+            "You’re breaking my heart! 💔",
+            "Just say yes, I won’t tell anyone 😜",
+            "Is it because I didn't offer flowers? 🌹",
+            "Last chance! 😉",
+            "Don't you want a Valentine's date? 🥺"
+        ];
 
-      <div  class="select-input-wrapper category-container" >
-            <label>Choose From available resources  </label>
+        function moveNo() {
+            //noBtn.style.position = 'static'; // Remove absolute positioning
+            //return;
 
-       <select  id="notes-category-select">  <option value="">  Select Material Categories </option> </select>
-
-
-      </div>
-
-
-        <div class="filters-buttons">  <button type='button' class='btn-reset'>Reset Filter</button>  </div>
+            let x = Math.random() * (container.offsetWidth - noBtn.offsetWidth - 20);
+            let y = Math.random() * (container.offsetHeight - noBtn.offsetHeight - 20);
 
 
-          </main>
-<div class='card-list-section'  id='card-list-render'>
-            <!-- This will have logic with card component for better architecture and implementation like all code  -->
-        </div>
-</div>
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+
+
+            flirtMsg.innerText = flirts[Math.floor(Math.random() * flirts.length)];
+            flirtMsg.style.display = 'block';
+        }
+
+
+       function celebrate() {
+            document.body.innerHTML = `
+                <div class="celebration-container">
+                    <h1>Yay! You said YES! 🎉💖</h1>
+                    <img src="milk-bear-love-mocha-cute-hug-o4qy1xq5p6myps41.gif" class="teddy" alt="Teddy Hug">
+                    <h2>Best decision ever! 🥰</h2>
+                </div>
+            `;
+
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
+
+
+            //Play music after a short delay.
+            setTimeout(() => {
+                const audio = new Audio("Ed Sheeran - Perfect.mp3"); // Load audio file
+                audio.currentTime = 15; // Start at 15 seconds
+                audio.play();
+            }, 500); //0.5 second delay
+        }
+
+
+
+    </script>
 </body>
 </html>
